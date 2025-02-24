@@ -19,6 +19,7 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
     private int shooter_width = 50;
     private int shooter_height = 60;
     private int shooter_X_Coordinate = 200;
+    public static int breakpointcounter = 0;
 
     // Constructor
     public SpaceInvadersUI() {
@@ -32,6 +33,7 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
         listenerActions = new ListenerActions();
         imageSelection = new ImageSelection();
         paintingActions = new PaintingActions();
+        // For debugging
 
         // Set images
         imageSelection.setGameImages();
@@ -61,7 +63,7 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
 
     @Override
     public void keyTyped(KeyEvent e) {
-        // Not used. Not providing an implementation Violates Integration Segregation
+        // Not used. Not providing an implementation Violates Interface Segregation
         // Principle
         // Could be used for character keys.
     }
