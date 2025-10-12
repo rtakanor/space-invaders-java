@@ -31,7 +31,12 @@ public class ImageSelection {
         // Need to handle case where url is not an image, ie a png or jpeg.
         if (imageUrl != null && !imageUrl.isEmpty()) {
             try {
-                return ImageIO.read(new URL(imageUrl));
+                URI uri = new URI(imageUrl);
+                return ImageIO.read(uri.toURL());
+            } catch (URISyntaxException e) {
+                GameExceptions.showErrorDialog(
+                        "URL Syntax error for " + imageUrl + " : " + e.getMessage()
+                                + "\nLoading default image instead");
             } catch (MalformedURLException e) {
                 GameExceptions.showErrorDialog(
                         "Invalid URL for " + imageType + " image: " + e.getMessage() + "\nLoading default image");
