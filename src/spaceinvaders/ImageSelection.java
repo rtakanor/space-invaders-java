@@ -3,7 +3,8 @@ package spaceinvaders;
 import java.awt.*;
 import java.io.IOException;
 import java.net.MalformedURLException;
-import java.net.URL;
+import java.net.URI;
+import java.net.URISyntaxException;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
@@ -31,13 +32,24 @@ public class ImageSelection {
         // Need to handle case where url is not an image, ie a png or jpeg.
         if (imageUrl != null && !imageUrl.isEmpty()) {
             try {
-                return ImageIO.read(new URL(imageUrl));
+                URI uri = new URI(imageUrl);
+                return ImageIO.read(uri.toURL());
+            } catch (IllegalArgumentException e) {
+                GameExceptions.showErrorDialog(
+                        "Illegal Argument " + imageUrl + " : " + e.getMessage()
+                                + "\nLoading default image instead");
+            } catch (URISyntaxException e) {
+                GameExceptions.showErrorDialog(
+                        "URL Syntax error for " + imageUrl + " : " + e.getMessage()
+                                + "\nLoading default image instead");
             } catch (MalformedURLException e) {
                 GameExceptions.showErrorDialog(
-                        "Invalid URL for " + imageType + " image: " + e.getMessage() + "\nLoading default image");
+                        "Malformed URL for " + imageUrl + " : " + e.getMessage()
+                                + "\nLoading default image instead");
             } catch (IOException e) {
                 GameExceptions.showErrorDialog(
-                        "Failed to load " + imageType + " image: " + e.getMessage() + "\nLoading default image");
+                        "Failed to load " + imageUrl + " : " + e.getMessage()
+                                + "\nLoading default image instead");
             }
         }
 
