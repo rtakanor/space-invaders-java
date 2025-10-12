@@ -44,10 +44,12 @@ public class ImageSelection {
                                 + "\nLoading default image instead");
             } catch (MalformedURLException e) {
                 GameExceptions.showErrorDialog(
-                        "Invalid URL for " + imageType + " image: " + e.getMessage() + "\nLoading default image");
+                        "Malformed URL for " + imageUrl + " : " + e.getMessage()
+                                + "\nLoading default image instead");
             } catch (IOException e) {
                 GameExceptions.showErrorDialog(
-                        "Failed to load " + imageType + " image: " + e.getMessage() + "\nLoading default image");
+                        "Failed to load " + imageUrl + " : " + e.getMessage()
+                                + "\nLoading default image instead");
             }
         }
 
