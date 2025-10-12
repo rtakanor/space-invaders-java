@@ -34,6 +34,10 @@ public class ImageSelection {
             try {
                 URI uri = new URI(imageUrl);
                 return ImageIO.read(uri.toURL());
+            } catch (IllegalArgumentException e) {
+                GameExceptions.showErrorDialog(
+                        "Illegal Argument " + imageUrl + " : " + e.getMessage()
+                                + "\nLoading default image instead");
             } catch (URISyntaxException e) {
                 GameExceptions.showErrorDialog(
                         "URL Syntax error for " + imageUrl + " : " + e.getMessage()
