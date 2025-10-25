@@ -1,4 +1,4 @@
-package spaceinvaders;
+package spaceinvaders.listeners;
 
 import java.awt.*;
 import java.awt.event.*;

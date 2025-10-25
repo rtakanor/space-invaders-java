@@ -1,4 +1,4 @@
-package spaceinvaders;
+package spaceinvaders.ui;
 
 import java.awt.*;
 import java.awt.event.*;

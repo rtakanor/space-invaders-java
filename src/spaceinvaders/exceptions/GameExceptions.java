@@ -1,4 +1,4 @@
-package spaceinvaders;
+package spaceinvaders.exceptions;
 
 import javax.swing.JOptionPane;
 
