@@ -1,6 +1,5 @@
 package spaceinvaders;
 
-import javax.swing.JFrame;
 import javax.swing.*;
 
 
@@ -9,6 +8,10 @@ public class Main {
         SwingUtilities.invokeLater(() -> {
             JFrame frame = new JFrame("Space Invaders with Images");
             SpaceInvadersUI game = new SpaceInvadersUI();
+            GameMenuBar menuBar = new GameMenuBar();
+
+            frame.setJMenuBar(menuBar);
+
             frame.add(game);
             frame.setSize(600, 700);
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
