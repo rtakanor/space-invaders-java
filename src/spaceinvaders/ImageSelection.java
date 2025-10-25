@@ -1,6 +1,7 @@
 package spaceinvaders;
 
 import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URI;
@@ -21,13 +22,24 @@ public class ImageSelection {
     }
 
     public void setGameImages() {
-        shooterImage = loadImage("shooter", "./resources/ShooterImage.png");
-        invaderImage = loadImage("invader", "./resources/InvaderImage.png");
+        shooterImage = loadImage("shooter", "/spaceinvaders/resources/images/goku.png");
+        invaderImage = loadImage("invader", "/spaceinvaders/resources/images/InvaderImage.png");
     }
 
+    
     private static Image loadImage(String imageType, String defaultResourcePath) {
         String imageUrl = JOptionPane.showInputDialog(null,
                 "Enter URL for " + imageType + " image (or leave blank for default):");
+
+        File localFile= new File(defaultResourcePath);
+        if (localFile.exists())
+        {
+            try {
+                return ImageIO.read(localFile);
+            } catch (IOException  e) {
+                GameExceptions.showErrorDialog("Error loading local image: " + e.getMessage());
+            }
+        }
 
         // Need to handle case where url is not an image, ie a png or jpeg.
         if (imageUrl != null && !imageUrl.isEmpty()) {
