@@ -22,8 +22,8 @@ public class ImageSelection {
     }
 
     public void setGameImages() {
-        shooterImage = loadImage("shooter", "/spaceinvaders/resources/images/goku.png");
-        invaderImage = loadImage("invader", "/spaceinvaders/resources/images/InvaderImage.png");
+        shooterImage = loadImage("shooter", "/spaceinvaders/resources/images/ana_sam.png");
+        invaderImage = loadImage("invader", "/spaceinvaders/resources/images/samuelcara.png");
     }
 
     
