@@ -5,6 +5,8 @@ import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.*;
+import spaceinvaders.listeners.ListenerActions;
+import spaceinvaders.painters.PaintingActions; 
 
 public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListener {
 

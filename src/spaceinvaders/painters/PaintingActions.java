@@ -1,6 +1,7 @@
 package spaceinvaders.painters;
 
 import java.awt.*;
+import spaceinvaders.ui.SpaceInvadersUI;
 
 public class PaintingActions {
 

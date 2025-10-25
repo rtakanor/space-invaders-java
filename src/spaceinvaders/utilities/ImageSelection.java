@@ -7,6 +7,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import spaceinvaders.exceptions.GameExceptions;
 
 public class ImageSelection {
     private Image shooterImage;
