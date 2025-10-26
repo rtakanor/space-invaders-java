@@ -22,18 +22,32 @@ public class ImageSelection {
     }
 
     public void setGameImages() {
-        shooterImage = loadImage("shooter", "/spaceinvaders/resources/images/Shooters/ana_samS.png");
-        invaderImage = loadImage("invader", "/spaceinvaders/resources/images/samuelcaraI.png");
+        shooterImage = loadImage("shooter", "/spaceinvaders/resources/Images/Shooters/ana_samS.png");
+        invaderImage = loadImage("invader", "/spaceinvaders/resources/Images/Invaders/samuelcaraI.png");
     }
 
-    public void setShooterImage(String path){
-        try {
-            shooterImage= javax.imageio.ImageIO.read(new java.io.File(path));
-        } catch (Exception e) {
-            GameExceptions.showErrorDialog("Error loading shooter image: " + e.getMessage());
+    public void setShooterImage(String path) {
+    try {
+        // Si el path empieza con "/", lo quitamos para construir correctamente la ruta
+        if (path.startsWith("/")) {
+            path = path.substring(1);
         }
-        
+
+        // Construye la ruta completa desde la carpeta del proyecto
+        File file = new File("src/" + path);
+        if (file.exists()) {
+            shooterImage = ImageIO.read(file);
+            return;
+        }
+
+        // Si no existe, lanza error claro
+        throw new IOException("File not found at " + file.getAbsolutePath());
+
+    } catch (Exception e) {
+        GameExceptions.showErrorDialog("Error loading shooter image: " + e.getMessage());
     }
+}
+
 
     
     private static Image loadImage(String imageType, String defaultResourcePath) {
