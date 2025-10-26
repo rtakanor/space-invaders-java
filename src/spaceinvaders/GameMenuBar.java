@@ -4,9 +4,9 @@ import javax.swing.*;
 
 public class GameMenuBar extends JMenuBar {
 
-    public GameMenuBar(ImageSelection imageSelection){
+    public GameMenuBar(ImageSelection imageSelection, SpaceInvadersUI game){
 
-        ShooterImageMenu menuShooter= new ShooterImageMenu(imageSelection);
+        ShooterImageMenu menuShooter= new ShooterImageMenu(imageSelection, game);
 
         JMenu invaderMenu = new JMenu("Invader Image");
         JMenu bulletMenu = new JMenu("Bullet Type");
