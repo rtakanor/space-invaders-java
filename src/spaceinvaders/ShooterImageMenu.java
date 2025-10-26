@@ -1,6 +1,5 @@
 package spaceinvaders;
 
-import java.awt.event.*;
 import javax.swing.*;
 
 
@@ -19,9 +18,9 @@ public class ShooterImageMenu extends JMenu {
         JMenuItem option3= new JMenuItem("Shooter 3");
         JMenuItem option4= new JMenuItem("Custom");
 
-        option1.addActionListener(e -> setShooter("resources/images/Shooters/ShooterImage.png"));
-        option2.addActionListener(e -> setShooter("resources/images/Shooters/ana_samS.png"));
-        option3.addActionListener(e -> setShooter("resources/images/virS.png"));
+        option1.addActionListener(e -> setShooter("/spaceinvaders/resources/Images/Shooters/ShooterImageS.png"));
+        option2.addActionListener(e -> setShooter("/spaceinvaders/resources/Images/Shooters/ana_samS.png"));
+        option3.addActionListener(e -> setShooter("/spaceinvaders/resources/Images/Shooters/virS.png"));
         option4.addActionListener(e -> chooseCustomImage());
 
         add(option1);
