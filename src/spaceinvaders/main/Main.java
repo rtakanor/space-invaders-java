@@ -2,6 +2,7 @@ package spaceinvaders.main;
 
 import javax.swing.JFrame;
 import javax.swing.*;
+import spaceinvaders.ui.SpaceInvadersUI;
 
 
 public class Main {

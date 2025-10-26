@@ -7,6 +7,7 @@ import java.util.Random;
 import javax.swing.*;
 import spaceinvaders.listeners.ListenerActions;
 import spaceinvaders.painters.PaintingActions; 
+import spaceinvaders.utilities.ImageSelection;
 
 public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListener {
 
@@ -107,7 +108,8 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
 
     // Inner class representing falling invaderboxes
     public class InvaderBox {
-        int x, y, size;
+        // int x, y, size;
+        public int x, y, size;
 
         public InvaderBox(int x, int y, int size) {
             this.x = x;
@@ -119,7 +121,7 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
     // Inner class representing bullets (bullets)
     // Look for Java bullet class
     public class Bullet {
-        int x, y;
+        public int x, y;
 
         public Bullet(int x, int y) {
             this.x = x;
