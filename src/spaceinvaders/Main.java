@@ -7,8 +7,9 @@ public class Main {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             JFrame frame = new JFrame("Space Invaders with Images");
+            ImageSelection imageSelection= new ImageSelection();
             SpaceInvadersUI game = new SpaceInvadersUI();
-            GameMenuBar menuBar = new GameMenuBar();
+            GameMenuBar menuBar = new GameMenuBar(imageSelection);
 
             frame.setJMenuBar(menuBar);
 
