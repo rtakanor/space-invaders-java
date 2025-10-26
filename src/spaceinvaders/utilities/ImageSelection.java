@@ -22,8 +22,8 @@ public class ImageSelection {
     }
 
     public void setGameImages() {
-        shooterImage = loadImage("shooter", "./resources/ShooterImage.png");
-        invaderImage = loadImage("invader", "./resources/InvaderImage.png");
+        shooterImage = loadImage("shooter", "/spaceinvaders/resources/ShooterImage.png");
+        invaderImage = loadImage("invader", "/spaceinvaders/resources/InvaderImage.png");
     }
 
     private static Image loadImage(String imageType, String defaultResourcePath) {
@@ -56,6 +56,7 @@ public class ImageSelection {
 
         // If no URL is provided or URL fails, load the default resource
         try {
+            System.out.println("Attempting to load " + imageType + " image from: " + defaultResourcePath); //debugging
             return ImageIO.read(ImageSelection.class.getResource(defaultResourcePath));
         } catch (IOException e) {
             GameExceptions.showErrorDialog("Failed to load default " + imageType + " image: " + e.getMessage());
