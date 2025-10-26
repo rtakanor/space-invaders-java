@@ -7,10 +7,12 @@ import javax.swing.*;
 public class ShooterImageMenu extends JMenu {
 
     private ImageSelection imageSelection;
+    private SpaceInvadersUI game;
 
-    public ShooterImageMenu(ImageSelection imageSelection){
+    public ShooterImageMenu(ImageSelection imageSelection, SpaceInvadersUI game){
         super("Shooter Image");
         this.imageSelection= imageSelection;
+        this.game= game;
 
 
         JMenuItem option1= new JMenuItem("Shooter 1");
@@ -23,6 +25,7 @@ public class ShooterImageMenu extends JMenu {
         option3.addActionListener(e -> setShooter("/spaceinvaders/resources/Images/Shooters/virS.png"));
         option4.addActionListener(e -> chooseCustomImage());
 
+
         add(option1);
         add(option2);
         add(option3);
@@ -32,6 +35,8 @@ public class ShooterImageMenu extends JMenu {
 
     private void setShooter(String path) {
         imageSelection.setShooterImage(path);
+        game.updateShooterImage(imageSelection.getShooterImage());
+
     }
 
 
