@@ -21,6 +21,7 @@ public class ImageSelection {
         return invaderImage;
     }
 
+
     public void setGameImages() {
         shooterImage = loadImage("shooter", "/spaceinvaders/resources/Images/Shooters/ana_samS.png");
         invaderImage = loadImage("invader", "/spaceinvaders/resources/Images/Invaders/samuelcaraI.png");
@@ -49,6 +50,9 @@ public class ImageSelection {
 }
 
 
+    public void setShooterImageDirect(Image newImage) {
+        this.shooterImage = newImage;
+    }
     
     private static Image loadImage(String imageType, String defaultResourcePath) {
         String imageUrl = JOptionPane.showInputDialog(null,
