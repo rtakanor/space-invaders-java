@@ -22,8 +22,17 @@ public class ImageSelection {
     }
 
     public void setGameImages() {
-        shooterImage = loadImage("shooter", "/spaceinvaders/resources/images/ana_sam.png");
-        invaderImage = loadImage("invader", "/spaceinvaders/resources/images/samuelcara.png");
+        shooterImage = loadImage("shooter", "/spaceinvaders/resources/images/Shooters/ana_samS.png");
+        invaderImage = loadImage("invader", "/spaceinvaders/resources/images/samuelcaraI.png");
+    }
+
+    public void setShooterImage(String path){
+        try {
+            shooterImage= javax.imageio.ImageIO.read(new java.io.File(path));
+        } catch (Exception e) {
+            GameExceptions.showErrorDialog("Error loading shooter image: " + e.getMessage());
+        }
+        
     }
 
     
