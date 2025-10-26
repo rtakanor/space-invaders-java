@@ -9,7 +9,7 @@ public class Main {
             JFrame frame = new JFrame("Space Invaders with Images");
             ImageSelection imageSelection= new ImageSelection();
             SpaceInvadersUI game = new SpaceInvadersUI();
-            GameMenuBar menuBar = new GameMenuBar(imageSelection);
+            GameMenuBar menuBar = new GameMenuBar(imageSelection,game);
 
             frame.setJMenuBar(menuBar);
 
