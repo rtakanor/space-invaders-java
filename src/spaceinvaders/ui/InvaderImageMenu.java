@@ -1,14 +1,13 @@
 package spaceinvaders.ui;
-import spaceinvaders.utilities.ImageSelection;
-
 import javax.swing.*;
+import spaceinvaders.utilities.ImageSelection;
 
 public class InvaderImageMenu extends JMenu {
 
     private ImageSelection imageSelection;
     private SpaceInvadersUI game;
 
-    public class InvaderImageMenu(ImageSelection imageSelection, SpaceInvadersUI game){
+    public  InvaderImageMenu(ImageSelection imageSelection, SpaceInvadersUI game){
         super("Invader Image");
         this.imageSelection = imageSelection;
         this.game= game;
