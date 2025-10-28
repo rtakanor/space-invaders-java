@@ -21,8 +21,8 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
     private final ListenerActions listenerActions;
     public final ImageSelection imageSelection;
     private final PaintingActions paintingActions;
-    private int shooter_width = 50;
-    private int shooter_height = 60;
+    private int shooter_width = 70;
+    private int shooter_height = 80;
     private int shooter_X_Coordinate = 200;
     public static int breakpointcounter = 0;
 
@@ -117,7 +117,7 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
         imageSelection.setInvaderImageDirect(newImage);
         repaint();
     }
-    
+
     // These are the characters or objects used in the game. Create a shooter class
     // thing.
 

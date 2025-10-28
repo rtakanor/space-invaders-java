@@ -15,9 +15,9 @@ public class ShooterImageMenu extends JMenu {
         this.game= game;
 
 
-        JMenuItem option1= new JMenuItem("Easy Mode");
-        JMenuItem option2= new JMenuItem("Intermediate Mode");
-        JMenuItem option3= new JMenuItem("Leyend Mode");
+        JMenuItem option1= new JMenuItem("Green Plant");
+        JMenuItem option2= new JMenuItem("Frozen Plant");
+        JMenuItem option3= new JMenuItem("SunFlower");
         JMenuItem option4= new JMenuItem("Custom");
 
         option1.addActionListener(e -> setShooter("/spaceinvaders/resources/Images/Shooters/guisante.png"));
