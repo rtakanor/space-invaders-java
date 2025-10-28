@@ -12,14 +12,14 @@ public class InvaderImageMenu extends JMenu {
         this.imageSelection = imageSelection;
         this.game= game;
 
-        JMenuItem option1= new JMenuItem("Invader 1");
-        JMenuItem option2= new JMenuItem("Invader 2");
-        JMenuItem option3= new JMenuItem("Invader 3");
+        JMenuItem option1= new JMenuItem("Easy");
+        JMenuItem option2= new JMenuItem("Hard");
+        JMenuItem option3= new JMenuItem("Extreme");
         JMenuItem option4= new JMenuItem("Custom");
 
-        option1.addActionListener(e -> setInvader("/spaceinvaders/resources/Images/Invaders/gonzagordo.png"));
-        option2.addActionListener(e -> setInvader("/spaceinvaders/resources/Images/Invaders/InvaderImageI.png"));
-        option3.addActionListener(e -> setInvader("/spaceinvaders/resources/Images/Invaders/samuelcaraI.png"));
+        option1.addActionListener(e -> setInvader("/spaceinvaders/resources/Images/Invaders/zombie.png"));
+        option2.addActionListener(e -> setInvader("/spaceinvaders/resources/Images/Invaders/zombie2.png"));
+        option3.addActionListener(e -> setInvader("/spaceinvaders/resources/Images/Invaders/zombie3.png"));
         option4.addActionListener(e -> chooseCustomImage());
 
         add(option1);
@@ -32,7 +32,7 @@ public class InvaderImageMenu extends JMenu {
 
     private void setInvader(String path) {
         imageSelection.setInvaderImage(path);
-        game.updateShooterImage(imageSelection.getInvaderImage());
+        game.updateInvaderImage(imageSelection.getInvaderImage());
 
     }
 

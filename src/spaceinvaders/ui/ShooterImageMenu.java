@@ -1,7 +1,6 @@
 package spaceinvaders.ui;
-import spaceinvaders.utilities.ImageSelection;
-
 import javax.swing.*;
+import spaceinvaders.utilities.ImageSelection;
 
 
 
@@ -16,14 +15,14 @@ public class ShooterImageMenu extends JMenu {
         this.game= game;
 
 
-        JMenuItem option1= new JMenuItem("Shooter 1");
-        JMenuItem option2= new JMenuItem("Shooter 2");
-        JMenuItem option3= new JMenuItem("Shooter 3");
+        JMenuItem option1= new JMenuItem("Easy Mode");
+        JMenuItem option2= new JMenuItem("Intermediate Mode");
+        JMenuItem option3= new JMenuItem("Leyend Mode");
         JMenuItem option4= new JMenuItem("Custom");
 
-        option1.addActionListener(e -> setShooter("/spaceinvaders/resources/Images/Shooters/ShooterImageS.png"));
-        option2.addActionListener(e -> setShooter("/spaceinvaders/resources/Images/Shooters/ana_samS.png"));
-        option3.addActionListener(e -> setShooter("/spaceinvaders/resources/Images/Shooters/virS.png"));
+        option1.addActionListener(e -> setShooter("/spaceinvaders/resources/Images/Shooters/guisante.png"));
+        option2.addActionListener(e -> setShooter("/spaceinvaders/resources/Images/Shooters/icedplant.png"));
+        option3.addActionListener(e -> setShooter("/spaceinvaders/resources/Images/Shooters/sunflower.png"));
         option4.addActionListener(e -> chooseCustomImage());
 
 
