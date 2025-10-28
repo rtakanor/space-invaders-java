@@ -8,6 +8,8 @@ import javax.swing.*;
 import spaceinvaders.listeners.ListenerActions;
 import spaceinvaders.painters.PaintingActions; 
 import spaceinvaders.utilities.ImageSelection;
+import spaceinvaders.SpaceInvadersUI.Bullet;
+import spaceinvaders.SpaceInvadersUI.InvaderBox;
 
 public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListener {
 
@@ -103,6 +105,11 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
         shooter_X_Coordinate = shooter_X;
     }
 
+    public void updateShooterImage(Image newImage)
+    {
+        imageSelection.setShooterImageDirect(newImage);
+        repaint();
+    }
     // These are the characters or objects used in the game. Create a shooter class
     // thing.
 

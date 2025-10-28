@@ -1,6 +1,7 @@
 package spaceinvaders.utilities;
 
 import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URI;
@@ -21,14 +22,52 @@ public class ImageSelection {
         return invaderImage;
     }
 
+
     public void setGameImages() {
-        shooterImage = loadImage("shooter", "/spaceinvaders/resources/ShooterImage.png");
-        invaderImage = loadImage("invader", "/spaceinvaders/resources/InvaderImage.png");
+        shooterImage = loadImage("shooter", "/spaceinvaders/resources/Images/Shooters/ana_samS.png");
+        invaderImage = loadImage("invader", "/spaceinvaders/resources/Images/Invaders/samuelcaraI.png");
     }
 
+    public void setShooterImage(String path) {
+    try {
+        // Si el path empieza con "/", lo quitamos para construir correctamente la ruta
+        if (path.startsWith("/")) {
+            path = path.substring(1);
+        }
+
+        // Construye la ruta completa desde la carpeta del proyecto
+        File file = new File("src/" + path);
+        if (file.exists()) {
+            shooterImage = ImageIO.read(file);
+            return;
+        }
+
+        // Si no existe, lanza error claro
+        throw new IOException("File not found at " + file.getAbsolutePath());
+
+    } catch (Exception e) {
+        GameExceptions.showErrorDialog("Error loading shooter image: " + e.getMessage());
+    }
+}
+
+
+    public void setShooterImageDirect(Image newImage) {
+        this.shooterImage = newImage;
+    }
+    
     private static Image loadImage(String imageType, String defaultResourcePath) {
         String imageUrl = JOptionPane.showInputDialog(null,
                 "Enter URL for " + imageType + " image (or leave blank for default):");
+
+        File localFile= new File(defaultResourcePath);
+        if (localFile.exists())
+        {
+            try {
+                return ImageIO.read(localFile);
+            } catch (IOException  e) {
+                GameExceptions.showErrorDialog("Error loading local image: " + e.getMessage());
+            }
+        }
 
         // Need to handle case where url is not an image, ie a png or jpeg.
         if (imageUrl != null && !imageUrl.isEmpty()) {
