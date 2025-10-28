@@ -11,6 +11,7 @@ import javax.swing.*;
 import spaceinvaders.exceptions.GameExceptions;
 
 public class ImageSelection {
+
     private Image shooterImage;
     private Image invaderImage;
 
@@ -50,10 +51,35 @@ public class ImageSelection {
     }
 }
 
-
     public void setShooterImageDirect(Image newImage) {
         this.shooterImage = newImage;
     }
+
+
+
+    public void setInvaderImage(String path){
+        try {
+            if(path.startsWith("/"))
+            {
+                path= path.substring(1);
+            }
+        File file = new File("src/" + path);
+        if (file.exists()) {
+            invaderImage = ImageIO.read(file);
+            return;
+        }
+
+        // Si no existe 
+        throw new IOException("File not found at " + file.getAbsolutePath());
+        } catch (Exception e) {
+            GameExceptions.showErrorDialog("Error loading invader image: " + e.getMessage());
+        }
+    }
+
+        public void setInvaderImageDirect(Image newImage){
+                this.invaderImage = newImage;
+        }
+        
     
     private static Image loadImage(String imageType, String defaultResourcePath) {
         String imageUrl = JOptionPane.showInputDialog(null,
