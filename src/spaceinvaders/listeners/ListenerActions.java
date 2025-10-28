@@ -21,7 +21,7 @@ public class ListenerActions {
         // Add new falling invaderboxs randomly
         if (game.random.nextInt(100) < 2) {
             int x = game.random.nextInt(game.getWidth());
-            game.invaderboxes.add(game.new InvaderBox(x, 0, game.getInvaderSize())); // Example size 40
+            game.invaderboxes.add(game.new InvaderBox(x, 0, game.getInvaderSize())); 
         }
 
         // Move invaderboxes down

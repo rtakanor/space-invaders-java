@@ -37,7 +37,12 @@ public class InvaderImageMenu extends JMenu {
         medium.addActionListener(e-> game.setInvaderSize(60));
         large.addActionListener(e-> game.setInvaderSize(80));
 
-        add(sizeMenu);
+        sizeMenu.add(small);
+        sizeMenu.add(medium);
+        sizeMenu.add(large);
+
+        addSeparator();
+        this.add(sizeMenu);
 
     }
 

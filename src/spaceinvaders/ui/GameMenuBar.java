@@ -9,13 +9,11 @@ public class GameMenuBar extends JMenuBar {
         ShooterImageMenu menuShooter= new ShooterImageMenu(imageSelection, game);
         InvaderImageMenu menuInvader= new InvaderImageMenu(imageSelection, game);
 
-        JMenu invaderMenu = new JMenu("Invader Image");
         JMenu bulletMenu = new JMenu("Bullet Type");
         JMenu musicMenu = new JMenu("Music");
 
         add(menuShooter);
         add(menuInvader);
-        add(invaderMenu);
         add(bulletMenu);
         add(musicMenu);
     }
