@@ -1,4 +1,5 @@
-package spaceinvaders;
+package spaceinvaders.ui;
+import spaceinvaders.utilities.ImageSelection;
 
 import javax.swing.*;
 

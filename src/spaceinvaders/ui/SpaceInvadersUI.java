@@ -8,8 +8,8 @@ import javax.swing.*;
 import spaceinvaders.listeners.ListenerActions;
 import spaceinvaders.painters.PaintingActions; 
 import spaceinvaders.utilities.ImageSelection;
-import spaceinvaders.SpaceInvadersUI.Bullet;
-import spaceinvaders.SpaceInvadersUI.InvaderBox;
+// import spaceinvaders.SpaceInvadersUI.Bullet;
+// import spaceinvaders.SpaceInvadersUI.InvaderBox;
 
 public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListener {
 
