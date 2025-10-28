@@ -1,9 +1,9 @@
 package spaceinvaders.main;
 
 import javax.swing.*;
+import spaceinvaders.ui.GameMenuBar;
 import spaceinvaders.ui.SpaceInvadersUI;
 import spaceinvaders.utilities.ImageSelection;
-import spaceinvaders.ui.GameMenuBar;
 
 
 
