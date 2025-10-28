@@ -8,6 +8,8 @@ import javax.swing.*;
 import spaceinvaders.listeners.ListenerActions;
 import spaceinvaders.painters.PaintingActions; 
 import spaceinvaders.utilities.ImageSelection;
+import spaceinvaders.listeners.KeyboardListener;
+
 // import spaceinvaders.SpaceInvadersUI.Bullet;
 // import spaceinvaders.SpaceInvadersUI.InvaderBox;
 
@@ -19,6 +21,9 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
     public Random random;
     public boolean moveLeft, moveRight;
     private final ListenerActions listenerActions;
+
+    private final KeyboardListener keyboardListener;
+
     public final ImageSelection imageSelection;
     private final PaintingActions paintingActions;
     private int shooter_width = 50;
@@ -38,6 +43,8 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
         listenerActions = new ListenerActions();
         imageSelection = new ImageSelection();
         paintingActions = new PaintingActions();
+        keyboardListener = new KeyboardListener();
+
         // For debugging
 
         // Set images
@@ -58,12 +65,12 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
 
     @Override
     public void keyPressed(KeyEvent e) {
-        listenerActions.keyPressed(e, this);
+        keyboardListener.keyPressed(e, this);
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-        listenerActions.keyReleased(e, this);
+        keyboardListener.keyReleased(e, this);
     }
 
     @Override
