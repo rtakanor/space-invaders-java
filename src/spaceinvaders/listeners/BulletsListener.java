@@ -4,7 +4,7 @@ import spaceinvaders.ui.SpaceInvadersUI;
 import java.util.Iterator;
 import java.awt.*;
 
-public class BulletListener {
+public class BulletsListener {
 
        public void updatePositions(SpaceInvadersUI game) {
         int shooter_X_Coordinate = game.getShooter_X_Coordinate();

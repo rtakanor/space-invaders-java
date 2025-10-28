@@ -5,7 +5,8 @@ import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.*;
-import spaceinvaders.listeners.ListenerActions;
+// import spaceinvaders.listeners.ListenerActions;
+import spaceinvaders.listeners.BulletsListener;
 import spaceinvaders.painters.PaintingActions; 
 import spaceinvaders.utilities.ImageSelection;
 import spaceinvaders.listeners.KeyboardListener;
@@ -20,7 +21,7 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
     public ArrayList<Bullet> bullets;
     public Random random;
     public boolean moveLeft, moveRight;
-    private final ListenerActions listenerActions;
+    private final BulletsListener bulletsListener;
 
     private final KeyboardListener keyboardListener;
 
@@ -40,7 +41,7 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
         random = new Random();
         moveLeft = false;
         moveRight = false;
-        listenerActions = new ListenerActions();
+        bulletsListener = new BulletsListener();
         imageSelection = new ImageSelection();
         paintingActions = new PaintingActions();
         keyboardListener = new KeyboardListener();
@@ -59,7 +60,7 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
     // Perhaps change this to specifically look for timer event or move all code to
     // ListenerActions and add overloading
     public void actionPerformed(ActionEvent e) {
-        listenerActions.updatePositions(this);
+        bulletsListener.updatePositions(this);
         repaint();
     }
 
