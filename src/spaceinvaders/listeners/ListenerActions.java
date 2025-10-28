@@ -60,7 +60,7 @@ public class ListenerActions {
             }
         }
     }
-
+/* 
     public void keyPressed(KeyEvent e, SpaceInvadersUI game) {
 
         int key = e.getKeyCode();
@@ -88,4 +88,5 @@ public class ListenerActions {
             game.moveRight = false;
         }
     }
+        */
 }
