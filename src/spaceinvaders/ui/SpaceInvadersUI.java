@@ -25,6 +25,7 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
     private int shooter_height = 80;
     private int shooter_X_Coordinate = 200;
     public static int breakpointcounter = 0;
+    private int invader_size= 40;
 
     // Constructor
     public SpaceInvadersUI() {
@@ -117,6 +118,30 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
         imageSelection.setInvaderImageDirect(newImage);
         repaint();
     }
+
+
+    public void setShooterSize(int width, int height){
+    this.shooter_width = width;     
+    this.shooter_height = height;  
+    repaint();                      
+    }
+
+
+    public int getInvaderSize() {
+    return invader_size;
+}
+
+    public void setInvaderSize(int newSize) {
+        invader_size = newSize;
+
+    // Actualiza también a los invaders ya en pantalla
+        for (InvaderBox inv : invaderboxes) {
+            inv.size = newSize;
+        }
+
+        repaint(); // redibuja el juego con el nuevo tamaño
+    }
+
 
     // These are the characters or objects used in the game. Create a shooter class
     // thing.

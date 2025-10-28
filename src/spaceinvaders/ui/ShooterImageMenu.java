@@ -33,6 +33,8 @@ public class ShooterImageMenu extends JMenu {
 
     }
 
+    
+
     private void setShooter(String path) {
         imageSelection.setShooterImage(path);
         game.updateShooterImage(imageSelection.getShooterImage());

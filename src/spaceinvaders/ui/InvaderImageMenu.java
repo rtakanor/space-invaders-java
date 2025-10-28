@@ -26,9 +26,20 @@ public class InvaderImageMenu extends JMenu {
         add(option2);
         add(option3);
         add(option4);
+
+        JMenu sizeMenu= new JMenu("Invader Size");
+
+        JMenuItem small= new JMenuItem("Small");
+        JMenuItem medium= new JMenuItem("Medium");
+        JMenuItem large= new JMenuItem("Large");
+
+        small.addActionListener(e-> game.setInvaderSize(40));
+        medium.addActionListener(e-> game.setInvaderSize(60));
+        large.addActionListener(e-> game.setInvaderSize(80));
+
+        add(sizeMenu);
+
     }
-
-
 
     private void setInvader(String path) {
         imageSelection.setInvaderImage(path);
