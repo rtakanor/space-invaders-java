@@ -4,6 +4,7 @@ import spaceinvaders.ui.SpaceInvadersUI;
 import java.util.Iterator;
 import java.awt.*;
 import spaceinvaders.entities.InvaderBox;
+import spaceinvaders.entities.Bullet;
 
 public class BulletsListener {
 
@@ -35,9 +36,9 @@ public class BulletsListener {
         }
 
         // Move bullets up
-        Iterator<SpaceInvadersUI.Bullet> bulletIterator = game.bullets.iterator();
+        Iterator<Bullet> bulletIterator = game.bullets.iterator();
         while (bulletIterator.hasNext()) {
-            SpaceInvadersUI.Bullet bullet = bulletIterator.next();
+            Bullet bullet = bulletIterator.next();
             bullet.y -= 5;
             if (bullet.y < 0) {
                 bulletIterator.remove(); // Remove bullets that go off the screen
@@ -47,7 +48,7 @@ public class BulletsListener {
         // Check for bullet-invaderbox collisions
         bulletIterator = game.bullets.iterator();
         while (bulletIterator.hasNext()) {
-            SpaceInvadersUI.Bullet bullet = bulletIterator.next();
+            Bullet bullet = bulletIterator.next();
             invaderboxIterator = game.invaderboxes.iterator();
             while (invaderboxIterator.hasNext()) {
                 InvaderBox invaderbox = invaderboxIterator.next();

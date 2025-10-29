@@ -1,6 +1,7 @@
 package spaceinvaders.listeners;
 import spaceinvaders.ui.SpaceInvadersUI;
 import java.awt.event.KeyEvent;
+import spaceinvaders.entities.Bullet;
 
 // new class to follow SRP principles for keyboard event handling
 public class KeyboardListener {

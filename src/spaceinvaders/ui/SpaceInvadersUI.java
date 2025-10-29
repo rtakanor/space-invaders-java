@@ -11,6 +11,7 @@ import spaceinvaders.painters.PaintingActions;
 import spaceinvaders.utilities.ImageSelection;
 import spaceinvaders.listeners.KeyboardListener;
 import spaceinvaders.entities.InvaderBox;   
+import spaceinvaders.entities.Bullet;   
 
 // import spaceinvaders.SpaceInvadersUI.Bullet;
 // import spaceinvaders.SpaceInvadersUI.InvaderBox;
@@ -119,32 +120,7 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
         imageSelection.setShooterImageDirect(newImage);
         repaint();
     }
-    // These are the characters or objects used in the game. Create a shooter class
-    // thing.
-
-    // Inner class representing falling invaderboxes
-
-    /* 
-    public class InvaderBox {
-        // int x, y, size;
-        public int x, y, size;
-
-        public InvaderBox(int x, int y, int size) {
-            this.x = x;
-            this.y = y;
-            this.size = size;
-        }
-    }
-    */
+}
 
     // Inner class representing bullets (bullets)
     // Look for Java bullet class
-    public class Bullet {
-        public int x, y;
-
-        public Bullet(int x, int y) {
-            this.x = x;
-            this.y = y;
-        }
-    }
-}
