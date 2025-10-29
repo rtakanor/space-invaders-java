@@ -16,7 +16,7 @@ import spaceinvaders.listeners.KeyboardListener;
 
 public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListener {
 
-    private final Timer timer;
+    private final Timer timer; 
     public ArrayList<InvaderBox> invaderboxes;
     public ArrayList<Bullet> bullets;
     public Random random;
@@ -122,6 +122,8 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
     // thing.
 
     // Inner class representing falling invaderboxes
+
+    /* 
     public class InvaderBox {
         // int x, y, size;
         public int x, y, size;
@@ -132,6 +134,7 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
             this.size = size;
         }
     }
+    */
 
     // Inner class representing bullets (bullets)
     // Look for Java bullet class
