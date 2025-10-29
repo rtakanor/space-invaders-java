@@ -1,4 +1,4 @@
-import spaceinvaders.entities;
+package spaceinvaders.entities;
 
 public class InvaderBox {
         // int x, y, size;

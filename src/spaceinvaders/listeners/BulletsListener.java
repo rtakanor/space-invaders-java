@@ -21,13 +21,13 @@ public class BulletsListener {
         // Add new falling invaderboxs randomly
         if (game.random.nextInt(100) < 2) {
             int x = game.random.nextInt(game.getWidth());
-            game.invaderboxes.add(game.new InvaderBox(x, 0, 40)); // Example size 40
+            game.invaderboxes.add(new InvaderBox(x, 0, 40)); // Example size 40
         }
 
         // Move invaderboxes down
-        Iterator<SpaceInvadersUI.InvaderBox> invaderboxIterator = game.invaderboxes.iterator();
+        Iterator<InvaderBox> invaderboxIterator = game.invaderboxes.iterator();
         while (invaderboxIterator.hasNext()) {
-            SpaceInvadersUI.InvaderBox invaderbox = invaderboxIterator.next();
+            InvaderBox invaderbox = invaderboxIterator.next();
             invaderbox.y += 2;
             if (invaderbox.y > game.getHeight()) {
                 invaderboxIterator.remove(); // Remove invaderboxes that go off the screen
@@ -50,7 +50,7 @@ public class BulletsListener {
             SpaceInvadersUI.Bullet bullet = bulletIterator.next();
             invaderboxIterator = game.invaderboxes.iterator();
             while (invaderboxIterator.hasNext()) {
-                SpaceInvadersUI.InvaderBox invaderbox = invaderboxIterator.next();
+                InvaderBox invaderbox = invaderboxIterator.next();
                 if (new Rectangle(bullet.x - 5, bullet.y, 10, 10).intersects(
                         new Rectangle(invaderbox.x, invaderbox.y, invaderbox.size, invaderbox.size))) {
                     bulletIterator.remove();
