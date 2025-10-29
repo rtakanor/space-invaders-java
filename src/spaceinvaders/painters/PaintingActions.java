@@ -2,6 +2,7 @@ package spaceinvaders.painters;
 
 import java.awt.*;
 import spaceinvaders.ui.SpaceInvadersUI;
+import spaceinvaders.entities.InvaderBox;
 
 public class PaintingActions {
 
@@ -20,9 +21,9 @@ public class PaintingActions {
 
     }
 
-    public void drawInvaders(Graphics g, java.util.List<SpaceInvadersUI.InvaderBox> invaderboxes, Image invaderboxImage,
+    public void drawInvaders(Graphics g, java.util.List<InvaderBox> invaderboxes, Image invaderboxImage,
             SpaceInvadersUI game) {
-        for (SpaceInvadersUI.InvaderBox invaderbox : invaderboxes) {
+        for (InvaderBox invaderbox : invaderboxes) {
             g.drawImage(invaderboxImage, invaderbox.x, invaderbox.y, invaderbox.size, invaderbox.size, game);
         }
     }

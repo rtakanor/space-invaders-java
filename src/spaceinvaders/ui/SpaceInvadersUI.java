@@ -10,6 +10,7 @@ import spaceinvaders.listeners.BulletsListener;
 import spaceinvaders.painters.PaintingActions; 
 import spaceinvaders.utilities.ImageSelection;
 import spaceinvaders.listeners.KeyboardListener;
+import spaceinvaders.entities.InvaderBox;   
 
 // import spaceinvaders.SpaceInvadersUI.Bullet;
 // import spaceinvaders.SpaceInvadersUI.InvaderBox;

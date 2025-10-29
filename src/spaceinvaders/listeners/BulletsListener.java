@@ -3,6 +3,7 @@ import spaceinvaders.ui.SpaceInvadersUI;
 // import java.awt.event.KeyEvent;
 import java.util.Iterator;
 import java.awt.*;
+import spaceinvaders.entities.InvaderBox;
 
 public class BulletsListener {
 
