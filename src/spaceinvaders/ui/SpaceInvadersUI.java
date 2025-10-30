@@ -19,9 +19,6 @@ import spaceinvaders.entities.Bullet;
 public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListener {
 
     private final Timer timer; 
-    public ArrayList<InvaderBox> invaderboxes;
-    public ArrayList<Bullet> bullets;
-    public Random random;
     public boolean moveLeft, moveRight;
     private final BulletsListener bulletsListener;
 
