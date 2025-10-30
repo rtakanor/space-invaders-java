@@ -18,7 +18,6 @@ public class KeyboardListener {
         }
         if (key == KeyEvent.VK_SPACE) {
             int shooter_X_Coordinate = gameState.getShooter_X_Coordinate();
-            int shooter_Y_Coordinate = gameState.getShooterHeight();
             int shooter_width = gameState.getShooterWidth();
             int shooter_height = gameState.getShooterHeight();
             int shooterY = ui.getHeight() - shooter_height;
