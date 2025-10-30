@@ -32,11 +32,7 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
     public SpaceInvadersUI() {
         //
         timer = new Timer(20, this); // not supposed to be final but ok
-        invaderboxes = new ArrayList<>(); // not ui
-        bullets = new ArrayList<>(); // not ui
-        random = new Random(); // not ui
-        moveLeft = false; // not ui
-        moveRight = false; // not ui
+
         bulletsListener = new BulletsListener();
         imageSelection = new ImageSelection();
         paintingActions = new PaintingActions();
