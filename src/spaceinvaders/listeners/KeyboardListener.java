@@ -21,7 +21,7 @@ public class KeyboardListener {
             int shooter_Y_Coordinate = gameState.getShooterHeight();
             int shooter_width = gameState.getShooterWidth();
             int shooter_height = gameState.getShooterHeight();
-            int shooterY = 600 - shooter_height; 
+            int shooterY = ui.getHeight() - shooter_height;
             gameState.bullets.add(
                     new Bullet(shooter_X_Coordinate + shooter_width / 2, shooterY));
         }
