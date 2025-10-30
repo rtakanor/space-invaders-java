@@ -3,6 +3,7 @@ package spaceinvaders.painters;
 import java.awt.*;
 import spaceinvaders.ui.SpaceInvadersUI;
 import spaceinvaders.entities.InvaderBox;
+import spaceinvaders.states.GameState;
 import spaceinvaders.entities.Bullet;
 
 public class PaintingActions {
@@ -11,11 +12,11 @@ public class PaintingActions {
 
     }
 
-    public void drawShooter(Graphics g, SpaceInvadersUI game) {
+    public void drawShooter(Graphics g, SpaceInvadersUI game, GameState gameState) {
         Image shooter_image = game.imageSelection.getShooterImage();
-        int shooter_height = game.getShooterHeight();
-        int shooter_width = game.getShooterWidth();
-        int shooter_X_Coordinate = game.getShooter_X_Coordinate();
+        int shooter_height = gameState.getShooterHeight();
+        int shooter_width = gameState.getShooterWidth();
+        int shooter_X_Coordinate = gameState.getShooter_X_Coordinate();
         int shooter_Y_Coordinate = game.getHeight() - shooter_height;
 
         g.drawImage(shooter_image, shooter_X_Coordinate, shooter_Y_Coordinate, shooter_width, shooter_height, game);
