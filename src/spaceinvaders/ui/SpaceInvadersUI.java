@@ -51,7 +51,7 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
 
     @Override
     public void keyPressed(KeyEvent e) {
-        keyboardListener.keyPressed(e, gameState);
+        keyboardListener.keyPressed(e, gameState, this);
     }
 
     @Override

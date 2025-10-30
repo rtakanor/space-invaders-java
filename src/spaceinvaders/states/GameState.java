@@ -15,6 +15,7 @@ public class GameState {
     private int shooter_width = 50;
     private int shooter_height = 60;
     private int shooter_X_Coordinate = 200;
+    private int shooter_Y_Coordinate;
 
     public GameState() {
 
@@ -41,5 +42,12 @@ public class GameState {
     public void setShooter_X_Coordinate(int shooter_X) { // not ui
         shooter_X_Coordinate = shooter_X;
     }
+
+    public int getShooter_Y_Coordinate() {
+    return shooter_Y_Coordinate;
+}
+    
+
+
 
 }
