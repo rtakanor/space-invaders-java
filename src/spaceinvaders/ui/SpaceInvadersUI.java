@@ -12,7 +12,6 @@ import spaceinvaders.states.GameState;
 public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListener {
 
     private final Timer timer; 
-    public boolean moveLeft, moveRight;
     private final BulletsListener bulletsListener;
     private final GameState gameState;
     private final KeyboardListener keyboardListener;
@@ -46,18 +45,18 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
     // Perhaps change this to specifically look for timer event or move all code to
     // ListenerActions and add overloading
     public void actionPerformed(ActionEvent e) {
-        bulletsListener.updatePositions(this);
+        bulletsListener.updatePositions(this, gameState);
         repaint();
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
-        keyboardListener.keyPressed(e, this);
+        keyboardListener.keyPressed(e, gameState);
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-        keyboardListener.keyReleased(e, this);
+        keyboardListener.keyReleased(e, gameState);
     }
 
     @Override
@@ -74,7 +73,7 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
         setBackground(Color.BLACK);
 
         // Draw shooter (rectangle)
-        paintingActions.drawShooter(g, this);
+        paintingActions.drawShooter(g, this, gameState);
 
         // Draw falling invaderboxes (as images)
         paintingActions.drawInvaders(g, gameState.invaderboxes, imageSelection.getInvaderImage(), this);

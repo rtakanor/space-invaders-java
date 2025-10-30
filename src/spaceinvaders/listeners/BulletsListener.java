@@ -15,7 +15,7 @@ public class BulletsListener {
         if (gameState.moveLeft && shooter_X_Coordinate > 0) {
             gameState.setShooter_X_Coordinate(shooter_X_Coordinate - 5);
         }
-        if (game.moveRight && shooter_X_Coordinate < game.getWidth() - shooter_Width) {
+        if (gameState.moveRight && shooter_X_Coordinate < game.getWidth() - shooter_Width) {
             gameState.setShooter_X_Coordinate(shooter_X_Coordinate + 5);
         }
 

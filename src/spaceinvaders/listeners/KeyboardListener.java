@@ -1,5 +1,4 @@
 package spaceinvaders.listeners;
-import spaceinvaders.ui.SpaceInvadersUI;
 import java.awt.event.KeyEvent;
 import spaceinvaders.entities.Bullet;
 import spaceinvaders.states.GameState;
@@ -7,31 +6,31 @@ import spaceinvaders.states.GameState;
 // new class to follow SRP principles for keyboard event handling
 public class KeyboardListener {
 
-    public void keyPressed(KeyEvent e, SpaceInvadersUI game, GameState gameState) {
+    public void keyPressed(KeyEvent e, GameState gameState) {
 
         int key = e.getKeyCode();
         if (key == KeyEvent.VK_LEFT) {
-            game.moveLeft = true;
+            gameState.moveLeft = true;
         }
         if (key == KeyEvent.VK_RIGHT) {
-            game.moveRight = true;
+            gameState.moveRight = true;
         }
         if (key == KeyEvent.VK_SPACE) {
             int shooter_X_Coordinate = gameState.getShooter_X_Coordinate();
             int shooter_width = gameState.getShooterWidth();
             int shooter_height = gameState.getShooterHeight();
             gameState.bullets.add(
-                    new Bullet(shooter_X_Coordinate + shooter_width / 2, game.getHeight() - shooter_height));
+                    new Bullet(shooter_X_Coordinate + shooter_width / 2, - shooter_height));
         }
     }
 
-    public void keyReleased(KeyEvent e, SpaceInvadersUI game) {
+    public void keyReleased(KeyEvent e, GameState gameState) {
         int key = e.getKeyCode();
         if (key == KeyEvent.VK_LEFT) {
-            game.moveLeft = false;
+            gameState.moveLeft = false;
         }
         if (key == KeyEvent.VK_RIGHT) {
-            game.moveRight = false;
+            gameState.moveRight = false;
         }
     }
     
