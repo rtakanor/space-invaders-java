@@ -2,26 +2,19 @@ package spaceinvaders.ui;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.util.ArrayList;
-import java.util.Random;
 import javax.swing.*;
-// import spaceinvaders.listeners.ListenerActions;
 import spaceinvaders.listeners.BulletsListener;
 import spaceinvaders.painters.PaintingActions; 
 import spaceinvaders.utilities.ImageSelection;
 import spaceinvaders.listeners.KeyboardListener;
-import spaceinvaders.entities.InvaderBox;   
-import spaceinvaders.entities.Bullet;   
-
-// import spaceinvaders.SpaceInvadersUI.Bullet;
-// import spaceinvaders.SpaceInvadersUI.InvaderBox;
+import spaceinvaders.states.GameState;
 
 public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListener {
 
     private final Timer timer; 
     public boolean moveLeft, moveRight;
     private final BulletsListener bulletsListener;
-
+    private final GameState gameState;
     private final KeyboardListener keyboardListener;
 
     public final ImageSelection imageSelection;
@@ -37,6 +30,7 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
         imageSelection = new ImageSelection();
         paintingActions = new PaintingActions();
         keyboardListener = new KeyboardListener();
+        gameState = new GameState();
 
         // For debugging
 
@@ -83,26 +77,10 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
         paintingActions.drawShooter(g, this);
 
         // Draw falling invaderboxes (as images)
-        paintingActions.drawInvaders(g, invaderboxes, imageSelection.getInvaderImage(), this);
+        paintingActions.drawInvaders(g, gameState.invaderboxes, imageSelection.getInvaderImage(), this);
 
         // Draw bullets (bullets)
-        paintingActions.drawBullets(g, bullets);
-    }
-
-    public int getShooterWidth() { // not ui
-        return (shooter_width);
-    }
-
-    public int getShooterHeight() { // not ui
-        return (shooter_height);
-    }
-
-    public int getShooter_X_Coordinate() { // not ui
-        return (shooter_X_Coordinate);
-    }
-
-    public void setShooter_X_Coordinate(int shooter_X) { // not ui
-        shooter_X_Coordinate = shooter_X;
+        paintingActions.drawBullets(g, gameState.bullets);
     }
 
     public void updateShooterImage(Image newImage)
