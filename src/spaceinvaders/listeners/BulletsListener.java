@@ -1,32 +1,32 @@
 package spaceinvaders.listeners;
 import spaceinvaders.ui.SpaceInvadersUI;
-// import java.awt.event.KeyEvent;
 import java.util.Iterator;
 import java.awt.*;
 import spaceinvaders.entities.InvaderBox;
 import spaceinvaders.entities.Bullet;
+import spaceinvaders.states.GameState;
 
 public class BulletsListener {
 
-       public void updatePositions(SpaceInvadersUI game) {
-        int shooter_X_Coordinate = game.getShooter_X_Coordinate();
-        int shooter_Width = game.getShooterWidth();
+       public void updatePositions(SpaceInvadersUI game, GameState gameState) {
+        int shooter_X_Coordinate = gameState.getShooter_X_Coordinate();
+        int shooter_Width = gameState.getShooterWidth();
         // Move shooter left or right
-        if (game.moveLeft && shooter_X_Coordinate > 0) {
-            game.setShooter_X_Coordinate(shooter_X_Coordinate - 5);
+        if (gameState.moveLeft && shooter_X_Coordinate > 0) {
+            gameState.setShooter_X_Coordinate(shooter_X_Coordinate - 5);
         }
         if (game.moveRight && shooter_X_Coordinate < game.getWidth() - shooter_Width) {
-            game.setShooter_X_Coordinate(shooter_X_Coordinate + 5);
+            gameState.setShooter_X_Coordinate(shooter_X_Coordinate + 5);
         }
 
         // Add new falling invaderboxs randomly
-        if (game.random.nextInt(100) < 2) {
-            int x = game.random.nextInt(game.getWidth());
-            game.invaderboxes.add(new InvaderBox(x, 0, 40)); // Example size 40
+        if (gameState.random.nextInt(100) < 2) {
+            int x = gameState.random.nextInt(game.getWidth());
+            gameState.invaderboxes.add(new InvaderBox(x, 0, 40)); // Example size 40
         }
 
         // Move invaderboxes down
-        Iterator<InvaderBox> invaderboxIterator = game.invaderboxes.iterator();
+        Iterator<InvaderBox> invaderboxIterator = gameState.invaderboxes.iterator();
         while (invaderboxIterator.hasNext()) {
             InvaderBox invaderbox = invaderboxIterator.next();
             invaderbox.y += 2;
@@ -36,7 +36,7 @@ public class BulletsListener {
         }
 
         // Move bullets up
-        Iterator<Bullet> bulletIterator = game.bullets.iterator();
+        Iterator<Bullet> bulletIterator = gameState.bullets.iterator();
         while (bulletIterator.hasNext()) {
             Bullet bullet = bulletIterator.next();
             bullet.y -= 5;
@@ -46,10 +46,10 @@ public class BulletsListener {
         }
 
         // Check for bullet-invaderbox collisions
-        bulletIterator = game.bullets.iterator();
+        bulletIterator = gameState.bullets.iterator();
         while (bulletIterator.hasNext()) {
             Bullet bullet = bulletIterator.next();
-            invaderboxIterator = game.invaderboxes.iterator();
+            invaderboxIterator = gameState.invaderboxes.iterator();
             while (invaderboxIterator.hasNext()) {
                 InvaderBox invaderbox = invaderboxIterator.next();
                 if (new Rectangle(bullet.x - 5, bullet.y, 10, 10).intersects(
