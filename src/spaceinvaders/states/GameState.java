@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import spaceinvaders.entities.Bullet;
 import spaceinvaders.entities.InvaderBox;
+import java.util.Random;
 
 public class GameState {
     public ArrayList<InvaderBox> invaderboxes;

@@ -26,20 +26,17 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
 
     public final ImageSelection imageSelection;
     private final PaintingActions paintingActions;
-    private int shooter_width = 50;
-    private int shooter_height = 60;
-    private int shooter_X_Coordinate = 200;
     public static int breakpointcounter = 0;
 
     // Constructor
     public SpaceInvadersUI() {
         //
-        timer = new Timer(20, this); // 20ms delay for smoother animations
-        invaderboxes = new ArrayList<>(); // Need to describe what ArrayList<> is.
-        bullets = new ArrayList<>();
-        random = new Random();
-        moveLeft = false;
-        moveRight = false;
+        timer = new Timer(20, this); // not supposed to be final but ok
+        invaderboxes = new ArrayList<>(); // not ui
+        bullets = new ArrayList<>(); // not ui
+        random = new Random(); // not ui
+        moveLeft = false; // not ui
+        moveRight = false; // not ui
         bulletsListener = new BulletsListener();
         imageSelection = new ImageSelection();
         paintingActions = new PaintingActions();
@@ -96,19 +93,19 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
         paintingActions.drawBullets(g, bullets);
     }
 
-    public int getShooterWidth() {
+    public int getShooterWidth() { // not ui
         return (shooter_width);
     }
 
-    public int getShooterHeight() {
+    public int getShooterHeight() { // not ui
         return (shooter_height);
     }
 
-    public int getShooter_X_Coordinate() {
+    public int getShooter_X_Coordinate() { // not ui
         return (shooter_X_Coordinate);
     }
 
-    public void setShooter_X_Coordinate(int shooter_X) {
+    public void setShooter_X_Coordinate(int shooter_X) { // not ui
         shooter_X_Coordinate = shooter_X;
     }
 
