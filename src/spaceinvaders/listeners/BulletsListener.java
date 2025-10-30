@@ -8,7 +8,7 @@ import spaceinvaders.states.GameState;
 
 public class BulletsListener {
 
-       public void updatePositions(SpaceInvadersUI game, GameState gameState) {
+       public void updatePositions(GameState gameState, SpaceInvadersUI game) {
         int shooter_X_Coordinate = gameState.getShooter_X_Coordinate();
         int shooter_Width = gameState.getShooterWidth();
         // Move shooter left or right

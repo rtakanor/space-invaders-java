@@ -45,7 +45,7 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
     // Perhaps change this to specifically look for timer event or move all code to
     // ListenerActions and add overloading
     public void actionPerformed(ActionEvent e) {
-        bulletsListener.updatePositions(this, gameState);
+        bulletsListener.updatePositions(gameState, this);
         repaint();
     }
 
