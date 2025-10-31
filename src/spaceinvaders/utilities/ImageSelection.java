@@ -43,22 +43,25 @@ public class ImageSelection {
     }
 
     public void setShooterImage(String path) {
-    try {
-        if (path.startsWith("/")) {
-            path = path.substring(1);
+        try {
+            File file = new File(path);
+            if(file.exists())
+            {
+                shooterImage= ImageIO.read(file);
+                return;
+            }
+
+            if(path.startsWith("/"))
+            {
+                shooterImage= ImageIO.read(ImageSelection.class.getResource(path));
+                return;
+            }
+            throw new IOException("File not found at"+ file.getAbsolutePath());
+
+        } catch (Exception e) {
+            GameExceptions.showErrorDialog("Error loading image selected"+ e.getMessage());
+            
         }
-
-        File file = new File("src/" + path);
-        if (file.exists()) {
-            shooterImage = ImageIO.read(file);
-            return;
-        }
-
-        throw new IOException("File not found at " + file.getAbsolutePath());
-
-    } catch (Exception e) {
-        GameExceptions.showErrorDialog("Error loading shooter image: " + e.getMessage());
-    }
 }
 
     public void setShooterImageDirect(Image newImage) {
