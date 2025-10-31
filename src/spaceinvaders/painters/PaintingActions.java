@@ -30,7 +30,7 @@ public class PaintingActions {
         }
     }
 
-    public void drawBullets(Graphics g, java.util.List<Bullet> bullets) {
+    public void drawBullets(Graphics g, java.util.List<Bullet> bullets, SpaceInvadersUI game) {
         Image bulletImg= game.getBulletImage();
         if(bulletImg == null){
             g.setColor(Color.YELLOW);
@@ -43,7 +43,7 @@ public class PaintingActions {
             return;
             }
     
-        for(SpaceInvadersUI.Bullet bullet : bullets)
+        for(Bullet bullet : bullets)
         {
             g.drawImage(bulletImg, bullet.x - 6, bullet.y, 20, 20, game);
         }
