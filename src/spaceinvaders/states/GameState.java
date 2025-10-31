@@ -12,8 +12,8 @@ public class GameState {
     public Random random;
     public boolean moveLeft;
     public boolean moveRight;
-    private int shooter_width = 50;
-    private int shooter_height = 60;
+    public int shooter_width = 50;
+    public int shooter_height = 60;
     private int shooter_X_Coordinate = 200;
     private int shooter_Y_Coordinate;
 

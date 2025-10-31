@@ -2,7 +2,11 @@ package spaceinvaders.ui;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
+
 import javax.swing.*;
+
+import spaceinvaders.entities.InvaderBox;
 import spaceinvaders.listeners.BulletsListener;
 import spaceinvaders.painters.PaintingActions; 
 import spaceinvaders.utilities.ImageSelection;
@@ -15,12 +19,13 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
     private final BulletsListener bulletsListener;
     private final GameState gameState;
     private final KeyboardListener keyboardListener;
+    private ArrayList<InvaderBox> invaderboxes;
 
     public final ImageSelection imageSelection;
     private final PaintingActions paintingActions;
     public static int breakpointcounter = 0;
     private int invader_size= 40;
-    private Image bulletImage;
+    private Image bulletImage; 
 
 
     // Constructor
@@ -33,6 +38,8 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
         paintingActions = new PaintingActions();
         keyboardListener = new KeyboardListener();
         gameState = new GameState();
+
+        ArrayList<InvaderBox> invaderboxes = gameState.invaderboxes;
 
         // For debugging
 
@@ -82,7 +89,7 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
         paintingActions.drawInvaders(g, gameState.invaderboxes, imageSelection.getInvaderImage(), this);
 
         // Draw bullets (bullets)
-        paintingActions.drawBullets(g, gameState.bullets);
+        paintingActions.drawBullets(g, gameState.bullets, this);
     }
 
     public void updateShooterImage(Image newImage)
@@ -99,9 +106,9 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
     }
 
 
-    public void setShooterSize(int width, int height){
-    this.shooter_width = width;     
-    this.shooter_height = height;  
+    public void setShooterSize(GameState gameState, int width, int height) {
+    gameState.shooter_width = width;     
+    gameState.shooter_height = height;  
     repaint();                      
     }
 
