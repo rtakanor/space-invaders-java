@@ -3,6 +3,7 @@ package spaceinvaders.ui;
 
 import java.awt.Image;
 import java.io.File;
+import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
@@ -39,7 +40,13 @@ public class BulletTypeMenu extends JMenu {
             if (path.startsWith("/")) path = path.substring(1);
             File file = new File("src/" + path);
             Image bulletImage = ImageIO.read(file);
+
+            if(bulletImage==null)
+            {
+                throw new IOException("Error in loading image for bullets! Please select a valid image (PNG or JPG).");
+            }
             game.setBulletImage(bulletImage);
+
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Error loading bullet image: " + ex.getMessage());
         }
@@ -53,6 +60,10 @@ public class BulletTypeMenu extends JMenu {
         if (result == JFileChooser.APPROVE_OPTION) {
             try {
                 Image bulletImage = ImageIO.read(chooser.getSelectedFile());
+                if(bulletImage==null)
+                {
+                    throw new IOException("\"Invalid file type. Please select a valid image (PNG or JPG).");
+                }
                 game.setBulletImage(bulletImage);
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, "Error loading custom bullet image: " + ex.getMessage());
