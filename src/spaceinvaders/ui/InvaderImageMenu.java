@@ -17,10 +17,10 @@ public class InvaderImageMenu extends JMenu {
         JMenuItem option3= new JMenuItem("Extreme");
         JMenuItem option4= new JMenuItem("Custom");
 
-        option1.addActionListener(e -> setInvader("/spaceinvaders/resources/Images/Invaders/zombie.png"));
-        option2.addActionListener(e -> setInvader("/spaceinvaders/resources/Images/Invaders/zombie2.png"));
-        option3.addActionListener(e -> setInvader("/spaceinvaders/resources/Images/Invaders/zombie3.png"));
-        option4.addActionListener(e -> chooseCustomImage());
+        option1.addActionListener(_ -> setInvader("/spaceinvaders/resources/Images/Invaders/zombie.png"));
+        option2.addActionListener(_ -> setInvader("/spaceinvaders/resources/Images/Invaders/zombie2.png"));
+        option3.addActionListener(_ -> setInvader("/spaceinvaders/resources/Images/Invaders/zombie3.png"));
+        option4.addActionListener(_ -> chooseCustomImage());
 
         add(option1);
         add(option2);
@@ -33,9 +33,9 @@ public class InvaderImageMenu extends JMenu {
         JMenuItem medium= new JMenuItem("Medium");
         JMenuItem large= new JMenuItem("Large");
 
-        small.addActionListener(e-> game.setInvaderSize(40));
-        medium.addActionListener(e-> game.setInvaderSize(60));
-        large.addActionListener(e-> game.setInvaderSize(80));
+        small.addActionListener(_-> game.setInvaderSize(40));
+        medium.addActionListener(_-> game.setInvaderSize(60));
+        large.addActionListener(_-> game.setInvaderSize(80));
 
         sizeMenu.add(small);
         sizeMenu.add(medium);

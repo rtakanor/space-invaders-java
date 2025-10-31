@@ -22,10 +22,10 @@ public class BulletTypeMenu extends JMenu {
         JMenuItem earth = new JMenuItem("Earth Bullet");
         JMenuItem custom = new JMenuItem("Custom Bullet");
 
-        fire.addActionListener(e -> setBullet("/spaceinvaders/resources/Images/Bullets/fireball.png"));
-        ice.addActionListener(e -> setBullet("/spaceinvaders/resources/Images/Bullets/iceball.png"));
-        earth.addActionListener(e -> setBullet("/spaceinvaders/resources/Images/Bullets/dirtball.png"));
-        custom.addActionListener(e -> chooseCustomBullet());
+        fire.addActionListener(_ -> setBullet("/spaceinvaders/resources/Images/Bullets/fireball.png"));
+        ice.addActionListener(_ -> setBullet("/spaceinvaders/resources/Images/Bullets/iceball.png"));
+        earth.addActionListener(_-> setBullet("/spaceinvaders/resources/Images/Bullets/dirtball.png"));
+        custom.addActionListener(_ -> chooseCustomBullet());
 
         add(fire);
         add(ice);

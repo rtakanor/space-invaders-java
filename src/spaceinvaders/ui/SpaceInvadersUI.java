@@ -39,8 +39,6 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
         keyboardListener = new KeyboardListener();
         gameState = new GameState();
 
-        ArrayList<InvaderBox> invaderboxes = gameState.invaderboxes;
-
         // For debugging
 
         // Set images

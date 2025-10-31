@@ -20,10 +20,10 @@ public class ShooterImageMenu extends JMenu {
         JMenuItem option3= new JMenuItem("SunFlower");
         JMenuItem option4= new JMenuItem("Custom");
 
-        option1.addActionListener(e -> setShooter("/spaceinvaders/resources/Images/Shooters/guisante.png"));
-        option2.addActionListener(e -> setShooter("/spaceinvaders/resources/Images/Shooters/icedplant.png"));
-        option3.addActionListener(e -> setShooter("/spaceinvaders/resources/Images/Shooters/sunflower.png"));
-        option4.addActionListener(e -> chooseCustomImage());
+        option1.addActionListener(_ -> setShooter("/spaceinvaders/resources/Images/Shooters/guisante.png"));
+        option2.addActionListener(_ -> setShooter("/spaceinvaders/resources/Images/Shooters/icedplant.png"));
+        option3.addActionListener(_ -> setShooter("/spaceinvaders/resources/Images/Shooters/sunflower.png"));
+        option4.addActionListener(_ -> chooseCustomImage());
 
 
         add(option1);
