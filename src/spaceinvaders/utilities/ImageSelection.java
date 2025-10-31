@@ -44,19 +44,16 @@ public class ImageSelection {
 
     public void setShooterImage(String path) {
     try {
-        // Si el path empieza con "/", lo quitamos para construir correctamente la ruta
         if (path.startsWith("/")) {
             path = path.substring(1);
         }
 
-        // Construye la ruta completa desde la carpeta del proyecto
         File file = new File("src/" + path);
         if (file.exists()) {
             shooterImage = ImageIO.read(file);
             return;
         }
 
-        // Si no existe, lanza error claro
         throw new IOException("File not found at " + file.getAbsolutePath());
 
     } catch (Exception e) {
