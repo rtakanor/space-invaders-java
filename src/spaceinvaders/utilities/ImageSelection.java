@@ -45,22 +45,28 @@ public class ImageSelection {
     public void setShooterImage(String path) {
         try {
             File file = new File(path);
+            Image img= null;
+
             if(file.exists())
             {
-                shooterImage= ImageIO.read(file);
-                return;
+                img= ImageIO.read(file);
             }
-
-            if(path.startsWith("/"))
+            else if(path.startsWith("/"))
             {
-                shooterImage= ImageIO.read(ImageSelection.class.getResource(path));
-                return;
+                img=ImageIO.read(ImageSelection.class.getResource(path));
             }
-            throw new IOException("File not found at "+ file.getAbsolutePath());
+            else
+            {
+                throw new IOException("File not found at: "+ file.getAbsolutePath());
+            }
 
+            if(img==null)
+            {
+                throw new IOException("The selected file is not a valid image format (e.g, PNG, JPG).");
+            }
+            shooterImage= img;
         } catch (Exception e) {
-            GameExceptions.showErrorDialog("Error loading Shooter image "+ e.getMessage());
-            
+            GameExceptions.showErrorDialog("Error loading shooter image: " + e.getMessage());
         }
 }
 
@@ -74,7 +80,7 @@ public class ImageSelection {
         this.invaderImage= newImage;
     }
 
-    
+
     public void setInvaderImage(String path){
         try {
             File file = new File(path);
