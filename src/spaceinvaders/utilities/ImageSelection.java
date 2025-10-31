@@ -23,7 +23,7 @@ public class ImageSelection {
     public void setGameImages() {
         try {
             File shooterFile = new File("src/spaceinvaders/resources/Images/Shooters/guisante.png");
-            File invaderFile = new File("src/spaceinvaders/resources/Images/Shooters/zombie.png");
+            File invaderFile = new File("src/spaceinvaders/resources/Images/Invaders/zombie.png");
 
             if(shooterFile.exists() && invaderFile.exists())
             {
@@ -56,10 +56,10 @@ public class ImageSelection {
                 shooterImage= ImageIO.read(ImageSelection.class.getResource(path));
                 return;
             }
-            throw new IOException("File not found at"+ file.getAbsolutePath());
+            throw new IOException("File not found at "+ file.getAbsolutePath());
 
         } catch (Exception e) {
-            GameExceptions.showErrorDialog("Error loading image selected"+ e.getMessage());
+            GameExceptions.showErrorDialog("Error loading Shooter image "+ e.getMessage());
             
         }
 }
@@ -69,27 +69,31 @@ public class ImageSelection {
     }
 
 
-
-    public void setInvaderImage(String path){
-        try {
-            if(path.startsWith("/"))
-            {
-                path= path.substring(1);
-            }
-        File file = new File("src/" + path);
-        if (file.exists()) {
-            invaderImage = ImageIO.read(file);
-            return;
-        }
-
-        // Si no existe 
-        throw new IOException("File not found at " + file.getAbsolutePath());
-        } catch (Exception e) {
-            GameExceptions.showErrorDialog("Error loading invader image: " + e.getMessage());
-        }
+    public void setInvaderImageDirect(Image newImage)
+    {
+        this.invaderImage= newImage;
     }
 
-        public void setInvaderImageDirect(Image newImage){
-                this.invaderImage = newImage;
+    
+    public void setInvaderImage(String path){
+        try {
+            File file = new File(path);
+            if(file.exists())
+            {
+                invaderImage= ImageIO.read(file);
+                return;
+            }
+
+            if(path.startsWith("/"))
+            {
+                invaderImage= ImageIO.read(ImageSelection.class.getResource(path));
+                return;
+            }
+            throw new IOException("File not found at "+ file.getAbsolutePath());
+
+        } catch (Exception e) {
+            GameExceptions.showErrorDialog("Error loading Invader image "+ e.getMessage());
+            
         }
+    }
 }

@@ -48,6 +48,8 @@ public class ShooterImageMenu extends JMenu {
         if (result == JFileChooser.APPROVE_OPTION) {
             String customPath = chooser.getSelectedFile().getAbsolutePath();
             imageSelection.setShooterImage(customPath);
+
+            game.updateShooterImage(imageSelection.getShooterImage());
         }
     }
     
