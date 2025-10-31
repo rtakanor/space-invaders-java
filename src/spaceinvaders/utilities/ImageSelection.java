@@ -107,4 +107,5 @@ public class ImageSelection {
         } catch (Exception e) {
             GameExceptions.showErrorDialog("Error loading invader image: " + e.getMessage());
         }
+    }
 }
