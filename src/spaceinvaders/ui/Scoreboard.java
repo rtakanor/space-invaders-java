@@ -2,10 +2,10 @@ package spaceinvaders.ui;
 import javax.swing.*;
 import java.awt.*;
 
-public class Scorebard extends JPanel {
+public class Scoreboard extends JPanel {
     private JLabel counterLabel;
 
-    public Scorebard() {
+    public Scoreboard() {
         setLayout(new FlowLayout(FlowLayout.LEFT));
         setBackground(Color.BLACK);
         counterLabel = new JLabel("Kills: 0");
