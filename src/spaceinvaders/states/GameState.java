@@ -19,7 +19,7 @@ public class GameState {
     private int invadersKilled = 0;
     public void incrementInvadersKilled() { invadersKilled++; }
     public int getInvadersKilled() { return invadersKilled; }
-
+    private boolean gameOver = false;
 
 
     public GameState() {
@@ -50,6 +50,13 @@ public class GameState {
 
     public int getShooter_Y_Coordinate() {
     return shooter_Y_Coordinate;
+}
+public boolean isGameOver() {
+    return gameOver;
+}
+
+public void setGameOver(boolean gameOver) {
+    this.gameOver = gameOver;
 }
     
 
