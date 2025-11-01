@@ -56,6 +56,12 @@ public class BulletsListener {
                         new Rectangle(invaderbox.x, invaderbox.y, invaderbox.size, invaderbox.size))) {
                     bulletIterator.remove();
                     invaderboxIterator.remove();
+
+                    gameState.incrementInvadersKilled();
+
+                    System.out.println("Invader was killed. Total: " + gameState.getInvadersKilled()); // just to check that is working
+
+
                     break;
                 }
             }
