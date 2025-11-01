@@ -12,7 +12,6 @@ import spaceinvaders.painters.PaintingActions;
 import spaceinvaders.utilities.ImageSelection;
 import spaceinvaders.listeners.KeyboardListener;
 import spaceinvaders.states.GameState;
-import spaceinvaders.ui.Scoreboard;
 
 public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListener {
 
@@ -87,6 +86,21 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         setBackground(Color.BLACK);
+
+        if (gameState.isGameOver()) {
+        g.setColor(Color.BLACK);
+        g.fillRect(0, 0, getWidth(), getHeight());
+
+        g.setColor(Color.RED);
+        g.setFont(new Font("Arial", Font.BOLD, 40));
+        g.drawString("WASTED", getWidth() / 2 - 100, getHeight() / 2 - 20);
+
+        g.setColor(Color.WHITE);
+        g.setFont(new Font("Arial", Font.PLAIN, 20));
+        g.drawString("Press R to Try Again", getWidth() / 2 - 100, getHeight() / 2 + 20);
+
+        return; // stop painting other elements
+    }
 
         // Draw shooter (rectangle)
         paintingActions.drawShooter(g, this, gameState);

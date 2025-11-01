@@ -30,7 +30,13 @@ public class BulletsListener {
         while (invaderboxIterator.hasNext()) {
             InvaderBox invaderbox = invaderboxIterator.next();
             invaderbox.y += 2;
+            if (invaderbox.y + invaderbox.size >= game.getHeight() - gameState.getShooterHeight()) {
+                gameState.setGameOver(true);
+                System.out.println("💀 YOU DIED — PRESS R TO TRY AGAIN MANCO");
+                break;
+            }
             if (invaderbox.y > game.getHeight()) {
+
                 invaderboxIterator.remove(); // Remove invaderboxes that go off the screen
             }
         }
