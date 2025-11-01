@@ -23,7 +23,7 @@ public class KeyboardListener {
         }
         if (key == KeyEvent.VK_SPACE) {
             if (shootTimer == null || shootTimer.isRunning()) {
-                shootTimer = new Timer(200, new ActionListener() {
+                shootTimer = new Timer(50, new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent evt) {
                     int shooter_X_Coordinate = gameState.getShooter_X_Coordinate();
@@ -48,6 +48,14 @@ public class KeyboardListener {
         if (key == KeyEvent.VK_RIGHT) {
             gameState.moveRight = false;
         }
+
+        if (key == KeyEvent.VK_SPACE) {
+            if (shootTimer != null && shootTimer.isRunning()) {
+                shootTimer.stop();
+                shootTimer = null;
+            }
     }
+
+}
     
 }
