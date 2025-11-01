@@ -16,6 +16,11 @@ public class GameState {
     public int shooter_height = 60;
     private int shooter_X_Coordinate = 200;
     private int shooter_Y_Coordinate;
+    private int invadersKilled = 0;
+    public void incrementInvadersKilled() { invadersKilled++; }
+    public int getInvadersKilled() { return invadersKilled; }
+
+
 
     public GameState() {
 

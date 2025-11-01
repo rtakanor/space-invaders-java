@@ -12,6 +12,7 @@ import spaceinvaders.painters.PaintingActions;
 import spaceinvaders.utilities.ImageSelection;
 import spaceinvaders.listeners.KeyboardListener;
 import spaceinvaders.states.GameState;
+import spaceinvaders.ui.Scoreboard;
 
 public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListener {
 
@@ -20,6 +21,8 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
     private final GameState gameState;
     private final KeyboardListener keyboardListener;
     private ArrayList<InvaderBox> invaderboxes;
+    private Scoreboard scoreboard;
+
 
     public final ImageSelection imageSelection;
     private final PaintingActions paintingActions;
@@ -44,6 +47,10 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
         // Set images
         imageSelection.setGameImages();
 
+        scoreboard = new Scoreboard();
+        setLayout(new BorderLayout());
+        add(scoreboard, BorderLayout.NORTH);
+
         setFocusable(true);
         addKeyListener(this);
         timer.start();
@@ -54,6 +61,7 @@ public class SpaceInvadersUI extends JPanel implements ActionListener, KeyListen
     // ListenerActions and add overloading
     public void actionPerformed(ActionEvent e) {
         bulletsListener.updatePositions(gameState, this);
+        scoreboard.updateCount(gameState.getInvadersKilled());
         repaint();
     }
 
