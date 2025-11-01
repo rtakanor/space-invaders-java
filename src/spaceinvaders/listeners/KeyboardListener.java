@@ -15,6 +15,8 @@ public class KeyboardListener {
     public void keyPressed(KeyEvent e, GameState gameState, SpaceInvadersUI ui) {
 
         int key = e.getKeyCode();
+
+
         if (key == KeyEvent.VK_LEFT) {
             gameState.moveLeft = true;
         }
@@ -30,7 +32,7 @@ public class KeyboardListener {
                     int shooterY = ui.getHeight() - shooter_height;
                     gameState.bullets.add(
                     new Bullet(shooter_X_Coordinate + shooter_width / 2, shooterY));
-                    
+
                 shootTimer = new Timer(300, new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent evt) {
@@ -45,6 +47,12 @@ public class KeyboardListener {
                 });
                 shootTimer.start();
             } 
+
+        }
+
+            if (key == KeyEvent.VK_R && gameState.isGameOver()) {
+            gameState.resetGame();
+            System.out.println("Game restarted!");
         }
     }
 

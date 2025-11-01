@@ -58,8 +58,13 @@ public boolean isGameOver() {
 public void setGameOver(boolean gameOver) {
     this.gameOver = gameOver;
 }
-    
 
+public void resetGame() {
+    invaderboxes.clear();
+    bullets.clear();
+    invadersKilled = 0;
+    gameOver = false;
+}
 
 
 }
