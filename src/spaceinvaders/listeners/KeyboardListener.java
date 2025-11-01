@@ -22,8 +22,16 @@ public class KeyboardListener {
             gameState.moveRight = true;
         }
         if (key == KeyEvent.VK_SPACE) {
-            if (shootTimer == null || shootTimer.isRunning()) {
-                shootTimer = new Timer(50, new ActionListener() {
+            
+            if (shootTimer == null || !shootTimer.isRunning()) {
+                 int shooter_X_Coordinate = gameState.getShooter_X_Coordinate();
+                    int shooter_width = gameState.getShooterWidth();
+                    int shooter_height = gameState.getShooterHeight();
+                    int shooterY = ui.getHeight() - shooter_height;
+                    gameState.bullets.add(
+                    new Bullet(shooter_X_Coordinate + shooter_width / 2, shooterY));
+                    
+                shootTimer = new Timer(300, new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent evt) {
                     int shooter_X_Coordinate = gameState.getShooter_X_Coordinate();
