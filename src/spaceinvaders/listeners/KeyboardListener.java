@@ -3,9 +3,14 @@ import java.awt.event.KeyEvent;
 import spaceinvaders.entities.Bullet;
 import spaceinvaders.states.GameState;
 import spaceinvaders.ui.SpaceInvadersUI;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.Timer;
 
 // new class to follow SRP principles for keyboard event handling
 public class KeyboardListener {
+
+    private Timer shootTimer;
 
     public void keyPressed(KeyEvent e, GameState gameState, SpaceInvadersUI ui) {
 
@@ -17,12 +22,29 @@ public class KeyboardListener {
             gameState.moveRight = true;
         }
         if (key == KeyEvent.VK_SPACE) {
-            int shooter_X_Coordinate = gameState.getShooter_X_Coordinate();
-            int shooter_width = gameState.getShooterWidth();
-            int shooter_height = gameState.getShooterHeight();
-            int shooterY = ui.getHeight() - shooter_height;
-            gameState.bullets.add(
+            
+            if (shootTimer == null || !shootTimer.isRunning()) {
+                 int shooter_X_Coordinate = gameState.getShooter_X_Coordinate();
+                    int shooter_width = gameState.getShooterWidth();
+                    int shooter_height = gameState.getShooterHeight();
+                    int shooterY = ui.getHeight() - shooter_height;
+                    gameState.bullets.add(
                     new Bullet(shooter_X_Coordinate + shooter_width / 2, shooterY));
+                    
+                shootTimer = new Timer(300, new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent evt) {
+                    int shooter_X_Coordinate = gameState.getShooter_X_Coordinate();
+                    int shooter_width = gameState.getShooterWidth();
+                    int shooter_height = gameState.getShooterHeight();
+                    int shooterY = ui.getHeight() - shooter_height;
+                    gameState.bullets.add(
+                    new Bullet(shooter_X_Coordinate + shooter_width / 2, shooterY));
+                    }
+
+                });
+                shootTimer.start();
+            } 
         }
     }
 
@@ -34,6 +56,14 @@ public class KeyboardListener {
         if (key == KeyEvent.VK_RIGHT) {
             gameState.moveRight = false;
         }
+
+        if (key == KeyEvent.VK_SPACE) {
+            if (shootTimer != null && shootTimer.isRunning()) {
+                shootTimer.stop();
+                shootTimer = null;
+            }
     }
+
+}
     
 }
