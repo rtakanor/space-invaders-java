@@ -1,9 +1,9 @@
 package spaceinvaders.ui;
 
-import javax.sound.sampled.*;
-import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
+import javax.sound.sampled.*;
+import javax.swing.*;
 import spaceinvaders.exceptions.GameExceptions;
 
 public class MusicMenu extends JMenu{
@@ -20,11 +20,11 @@ public class MusicMenu extends JMenu{
         JMenuItem custom= new JMenuItem("Custom Music");
         JMenuItem stopMusic= new JMenuItem("Stop Music");
 
-        track1.addActionListener(_ -> playMusic("/spaceinvaders/resources/Music/faded.wav"));
-        track2.addActionListener(_ -> playMusic("/spaceinvaders/resources/Music/minecraftmusic.wav"));
-        track3.addActionListener(_ -> playMusic("/spaceinvaders/resources/Music/nevergonnagiveyouup.wav"));
-        custom.addActionListener(_ -> chooseCustomMusic());
-        stopMusic.addActionListener(_ -> stopMusic());
+        track1.addActionListener(e -> playMusic("/spaceinvaders/resources/Music/faded.wav"));
+        track2.addActionListener(e -> playMusic("/spaceinvaders/resources/Music/minecraftmusic.wav"));
+        track3.addActionListener(e -> playMusic("/spaceinvaders/resources/Music/nevergonnagiveyouup.wav"));
+        custom.addActionListener(e -> chooseCustomMusic());
+        stopMusic.addActionListener(e -> stopMusic());
 
         add(track1);
         add(track2);
